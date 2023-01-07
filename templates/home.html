@@ -125,7 +125,7 @@ button{
 }
 .social div{
   background: red;
-  width: 150px;
+  border-radius: 3px;
   padding: 5px 10px 10px 5px;
   background-color: rgba(255,255,255,0.27);
   color: #eaf0fb;
@@ -148,14 +148,18 @@ button{
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form>
-        <h3>Login Here</h3>
+    <form method="post">
+        <h3>LOGIN</h3>
+        {% csrf_token %}
+        <div>
+            <input type="name" placeholder="username" name="uname">
+        </div>
+        <div>
+            <input type="password" placeholder="Password" name="pass">
+        </div>
 
-       {% csrf_token %}
-       {{login_form}}
-       {{registerdata_form}}
-        <button type="submit">submit</button>
-        <a class="nav-link" href="{% url 'home' %}">login</a>
+        <button type="submit">login</button>
+        <a class="nav-link" href="{% url 'register' %}">register</a>
     </form>
 </body>
 </html>
